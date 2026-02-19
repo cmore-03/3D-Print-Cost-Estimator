@@ -1,59 +1,116 @@
 {
-  "name": "Printer",
+  "name": "PrintProject",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "Printer name or model"
+      "description": "Name of the print project"
     },
-    "brand": {
+    "spool_id": {
       "type": "string",
-      "description": "Printer manufacturer"
+      "description": "ID of the filament spool used"
     },
-    "wattage": {
-      "type": "number",
-      "default": 200,
-      "description": "Power consumption in watts"
+    "printer_id": {
+      "type": "string",
+      "description": "ID of the printer used"
     },
-    "max_speed_mm_s": {
-      "type": "number",
-      "default": 200,
-      "description": "Maximum print speed in mm/s"
+    "spool_name": {
+      "type": "string",
+      "description": "Name of the spool used (denormalized for display)"
     },
-    "build_volume_x": {
-      "type": "number",
-      "description": "Build volume X dimension in mm"
+    "material": {
+      "type": "string",
+      "description": "Filament material used"
     },
-    "build_volume_y": {
+    "filament_used_g": {
       "type": "number",
-      "description": "Build volume Y dimension in mm"
+      "description": "Amount of filament used in grams"
     },
-    "build_volume_z": {
+    "filament_cost": {
       "type": "number",
-      "description": "Build volume Z dimension in mm"
+      "description": "Cost of filament used"
     },
-    "nozzle_diameter": {
+    "print_time_minutes": {
       "type": "number",
-      "default": 0.4,
-      "description": "Nozzle diameter in mm"
+      "description": "Estimated or actual print time in minutes"
+    },
+    "layer_height_mm": {
+      "type": "number",
+      "description": "Layer height in mm"
+    },
+    "infill_percent": {
+      "type": "number",
+      "description": "Infill density percentage"
+    },
+    "print_speed_mm_s": {
+      "type": "number",
+      "description": "Print speed in mm/s"
+    },
+    "nozzle_temp": {
+      "type": "number",
+      "description": "Nozzle temperature \u00b0C"
+    },
+    "bed_temp": {
+      "type": "number",
+      "description": "Bed temperature \u00b0C"
+    },
+    "supports": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether supports were used"
+    },
+    "electricity_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Electricity cost for the print"
+    },
+    "labor_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Labor cost for setup, removal, etc."
+    },
+    "machine_wear_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Machine depreciation/wear cost"
+    },
+    "total_cost": {
+      "type": "number",
+      "description": "Total cost of the print (filament + electricity + labor + wear)"
     },
     "status": {
       "type": "string",
       "enum": [
-        "active",
-        "maintenance",
-        "retired"
+        "planned",
+        "printing",
+        "completed",
+        "failed",
+        "cancelled"
       ],
-      "default": "active",
-      "description": "Printer status"
+      "default": "completed",
+      "description": "Print job status"
     },
     "notes": {
       "type": "string",
-      "description": "Notes about the printer"
+      "description": "Notes about the print"
+    },
+    "model_file_url": {
+      "type": "string",
+      "description": "URL of the uploaded 3D model file"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Photo of the completed print"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "description": "Currency"
     }
   },
   "required": [
     "name",
-    "wattage"
+    "filament_used_g",
+    "total_cost"
   ]
 }
