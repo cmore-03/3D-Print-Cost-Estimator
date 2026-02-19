@@ -34,4 +34,8 @@ export default function StatCard({ title, value, subtitle, icon: Icon, accent = 
           <div className={cn("p-3 rounded-xl", iconBg[accent])}>
             <Icon className="w-5 h-5" />
           </div>
- 
+        )}
+      </div>
+    </div>
+  );
+}
