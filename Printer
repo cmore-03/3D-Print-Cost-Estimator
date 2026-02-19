@@ -1,0 +1,59 @@
+{
+  "name": "Printer",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Printer name or model"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Printer manufacturer"
+    },
+    "wattage": {
+      "type": "number",
+      "default": 200,
+      "description": "Power consumption in watts"
+    },
+    "max_speed_mm_s": {
+      "type": "number",
+      "default": 200,
+      "description": "Maximum print speed in mm/s"
+    },
+    "build_volume_x": {
+      "type": "number",
+      "description": "Build volume X dimension in mm"
+    },
+    "build_volume_y": {
+      "type": "number",
+      "description": "Build volume Y dimension in mm"
+    },
+    "build_volume_z": {
+      "type": "number",
+      "description": "Build volume Z dimension in mm"
+    },
+    "nozzle_diameter": {
+      "type": "number",
+      "default": 0.4,
+      "description": "Nozzle diameter in mm"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "maintenance",
+        "retired"
+      ],
+      "default": "active",
+      "description": "Printer status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes about the printer"
+    }
+  },
+  "required": [
+    "name",
+    "wattage"
+  ]
+}
