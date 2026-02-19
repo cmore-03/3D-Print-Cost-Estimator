@@ -56,4 +56,61 @@
     },
     "supports": {
       "type": "boolean",
- 
+      "default": false,
+      "description": "Whether supports were used"
+    },
+    "electricity_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Electricity cost for the print"
+    },
+    "labor_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Labor cost for setup, removal, etc."
+    },
+    "machine_wear_cost": {
+      "type": "number",
+      "default": 0,
+      "description": "Machine depreciation/wear cost"
+    },
+    "total_cost": {
+      "type": "number",
+      "description": "Total cost of the print (filament + electricity + labor + wear)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "printing",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "default": "completed",
+      "description": "Print job status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes about the print"
+    },
+    "model_file_url": {
+      "type": "string",
+      "description": "URL of the uploaded 3D model file"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Photo of the completed print"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "description": "Currency"
+    }
+  },
+  "required": [
+    "name",
+    "filament_used_g",
+    "total_cost"
+  ]
+}
