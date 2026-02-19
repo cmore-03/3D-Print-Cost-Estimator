@@ -54,4 +54,15 @@ export default function RecentPrintsTable({ prints }) {
                     <StatusIcon className="w-3 h-3 mr-1" />
                     {s.label}
                   </Badge>
- 
+                </td>
+                <td className="py-3 px-2 text-xs text-slate-500 text-right">
+                  {p.created_date ? format(new Date(p.created_date), 'MMM d') : '—'}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
