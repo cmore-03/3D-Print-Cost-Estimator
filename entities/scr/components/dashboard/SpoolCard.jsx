@@ -54,4 +54,24 @@ export default function SpoolCard({ spool }) {
               </h3>
             </div>
             <div className="flex items-center gap-2 mt-1.5">
- 
+              <Badge variant="outline" className="text-[10px] border-white/10 text-slate-400">
+                {spool.material}
+              </Badge>
+              {spool.brand && (
+                <span className="text-[10px] text-slate-600">{spool.brand}</span>
+              )}
+            </div>
+            <div className="flex items-center justify-between mt-3">
+              <span className="text-xs text-slate-500">
+                {spool.remaining_weight_g?.toFixed(0)}g / {spool.total_weight_g?.toFixed(0)}g
+              </span>
+              <span className="text-xs font-mono text-slate-400">
+                ${costPerGram.toFixed(3)}/g
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
